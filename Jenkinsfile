@@ -2,7 +2,7 @@ pipeline {
     
     agent { label 'centos' }
     options { 
-        timeout(time: 2, unit: 'MINUTES')
+        timeout(time: 12, unit: 'MINUTES')
         ansiColor('xterm')
     }
     
