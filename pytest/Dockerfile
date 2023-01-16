@@ -10,3 +10,5 @@ COPY . .
 
 CMD [ "/usr/local/bin/pytest", "-v", "-s" ]
 CMD [ "/usr/local/bin/pytest", "-v", "-ss" ]
+
+
