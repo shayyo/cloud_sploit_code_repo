@@ -28,8 +28,7 @@ pipeline {
           string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
           string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
         ]) {
-          sh ''
-          '
+          sh '''
           export TRIVY_RUN_AS_PLUGIN = aqua
           export trivyVersion = 0.34 .0
           export AQUA_URL = https: //api.dev.supply-chain.cloud.aquasec.com
@@ -37,8 +36,8 @@ pipeline {
             curl - sfL https: //raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b . v${trivyVersion}
             . / trivy fs--security - checks config, vuln, secret.
           # Customizing which severities are scanned
-          for is done by adding the following flag: --severity UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL ''
-          '
+          for is done by adding the following flag: --severity UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
+          '''
         }
         echo 'Deploying.....'
       }
