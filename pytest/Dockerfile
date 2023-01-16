@@ -5,6 +5,7 @@ WORKDIR /pytest
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
+ADD shay /shay
 COPY . .
 
 CMD [ "/usr/local/bin/pytest", "-v", "-s" ]
