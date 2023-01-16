@@ -8,3 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD [ "/usr/local/bin/pytest", "-v", "-s" ]
+CMD [ "/usr/local/bin/pytest", "-v", "-ss" ]
