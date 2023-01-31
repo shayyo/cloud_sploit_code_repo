@@ -15,13 +15,7 @@ pipeline {
         sh 'echo "Building....sh"'
       }
     }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-        sh 'sudo docker-compose up --build --exit-code-from pytest'
-      }
-    }
-    stage('Deploy') {
+    stage('CloudSploit') {
       steps {
         withCredentials([
           string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'),
@@ -38,6 +32,16 @@ pipeline {
           # Customizing which severities are scanned for is done by adding the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
           '''
         }
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing...'
+        sh 'sudo docker-compose up --build --exit-code-from pytest'
+      }
+    }
+    stage('Deploy') {
+      steps {
         echo 'Deploying.....'
       }
     }
