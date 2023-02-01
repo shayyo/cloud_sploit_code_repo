@@ -17,6 +17,7 @@ pipeline {
     }
     stage('CloudSploit') {
       steps {
+        echo 'Cloudsploit...'
         withCredentials([
           string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'),
           string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
